@@ -15,10 +15,9 @@ const props = defineProps<HomeProfileProps>()
   >
     <div class="flex items-center justify-between">
       <h2
-      class="mb-6 text-lg font-semibold uppercase tracking-wider text-gray-400"
+        class="mb-6 text-lg font-semibold uppercase tracking-wider text-gray-400"
       >
         {{ props.title }}
-
       </h2>
 
       <div class="mt-6 flex items-center justify-center text-sm">
@@ -29,7 +28,6 @@ const props = defineProps<HomeProfileProps>()
           もっとみる &rarr;
         </AppLink>
       </div>
-
     </div>
     <div>
       <p
