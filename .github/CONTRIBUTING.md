@@ -1,6 +1,6 @@
 # 🌟 Contributing
 
-プロジェクトへの貢献をご検討くださりありがとうございます 🙏  
+プロジェクトへの貢献をご検討くださりありがとうございます 🙏
 開発・編集に参加される場合は、本ドキュメントをお読みください 👀
 
 ## 📩 Create an Issue
@@ -11,12 +11,12 @@
 
 ## 🚀 Send a Pull Request
 
-単純な誤字や小さな変更でも、プルリクエストは大歓迎です！  
+単純な誤字や小さな変更でも、プルリクエストは大歓迎です！
 [コントリビューター行動規範](./CODE_OF_CONDUCT.md) に反する内容を含むプルリクエストは受け入れておりません。ご注意ください。
 
 ### Commit Conventions
 
-コミットメッセージの規約として [Conventionaal Commits](https://www.conventionalcommits.org/ja/v1.0.0/) および [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional) を採用しています。  
+コミットメッセージの規約として [Conventionaal Commits](https://www.conventionalcommits.org/ja/v1.0.0/) および [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional) を採用しています。
 許容されている型は以下のとおりです。
 
 - **feat** - 新しい機能の追加。
@@ -33,16 +33,18 @@
 
 ### IDE Setup
 
-このプロジェクトでは、 [Visual Studio Code](https://code.visualstudio.com/) の使用を推奨しています。  
+このプロジェクトでは、 [Visual Studio Code](https://code.visualstudio.com/) の使用を推奨しています。
 また、以下のボタンから [StackBlitz Codeflow](https://stackblitz.com/codeflow) を使用して開発や修正をすることも可能です。
 
+<!--
 [![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https://pr.new/Hiratake/hiratake-web)
+-->
 
 推奨する拡張機能は `.vscode/extensions.json` に記載しておりますので、適宜インストールするなどの対応をおねがいいたします。
 
 ### Package Manager
 
-このプロジェクトでは、パッケージマネージャーに [pnpm](https://pnpm.io/ja/) を採用しています。  
+このプロジェクトでは、パッケージマネージャーに [pnpm](https://pnpm.io/ja/) を採用しています。
 `npm` や `yarn` を使用している場合は、ご変更ください。
 
 [mise](https://mise.jdx.dev/) を使用している場合、`mise install` を実行してプロジェクトで使用しているバージョンの `Node.js` と `pnpm` をインストールします。
@@ -55,7 +57,7 @@
 
 ### Linter and Formatter
 
-このプロジェクトでは、 [ESLint](https://eslint.org/) および [textlint](https://textlint.github.io/) でコードのリンティング、 [Prettier](https://prettier.io/) でコードの整形を行っています。  
+このプロジェクトでは、 [ESLint](https://eslint.org/) および [textlint](https://textlint.github.io/) でコードのリンティング、 [Prettier](https://prettier.io/) でコードの整形を行っています。
 これらは、 Git のコミット時に自動的に実行され、適用されます。ただし、 `pnpm install` を実行している場合に限ります。
 
 プロジェクトによっては `ESLint` でコードの整形まで行っているものもありますが、このプロジェクトではそのような設定にはしておりません。
