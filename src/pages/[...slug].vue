@@ -57,7 +57,6 @@ useSchemaOrg([
     })),
   }),
 ])
-defineOgImage({ url: '/ogp.jpg', width: 1200, height: 630, alt: name })
 </script>
 
 <template>

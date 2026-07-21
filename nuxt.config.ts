@@ -30,18 +30,7 @@ export default defineNuxtConfig({
     prerender: { failOnError: false, crawlLinks: true, routes: ['/feed.xml'] },
   },
   ogImage: {
-    fonts: ['Noto+Sans+JP:400', 'Noto+Sans+JP:700'],
-
-    // https://github.com/harlan-zw/nuxt-seo/issues/109
-    // https://nuxtseo.com/docs/og-image/renderers
-    compatibility: {
-      prerender: {
-        resvg: 'wasm',
-      },
-      runtime: {
-        resvg: 'wasm',
-      },
-    },
+    enabled: false,
   },
 
   routeRules: {
