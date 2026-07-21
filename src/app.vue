@@ -16,8 +16,8 @@ const website = useWebsite()
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator :height="2" :color="website.themeColor" />
 
-    <!-- Navbar（Fixedで浮いているため、単体で配置） -->
-    <Navber />
+    <!-- TheNavber（Fixedで浮いているため、単体で配置） -->
+    <TheNavber />
 
     <!-- 全体コンテンツをギュッと中央に寄せるための枠組み -->
     <div class="mx-auto max-w-4xl px-4 sm:px-4">

@@ -33,7 +33,7 @@ useSeoMeta({ title: title.value, description: description.value })
     <SeoDefault />
     <NuxtLoadingIndicator :height="2" :color="website.themeColor" />
 
-    <Navber />
+    <TheNavber />
 
     <div class="mx-auto max-w-2xl px-4 sm:px-6">
     <main class="main mt-12 max-w-5xl gap-8 md:mt-20 md:gap-16">

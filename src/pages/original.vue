@@ -143,7 +143,7 @@ body {
 a {
   text-decoration: none;
   color: #da2b5c;
-  /* ↑リンクの色　一括置換すると見出し色も一緒に変わります ※ */
+  /* ↑リンクの色 一括置換すると見出し色も一緒に変わります ※ */
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
