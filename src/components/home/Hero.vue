@@ -45,7 +45,7 @@ const props = defineProps<HomeHeroProps>()
         <p class="text-xs md:text-sm">{{ props.subtitle }}</p>
       </div>
     </div>
-<!--
+    <!--
         <div class="absolute right-0 top-16 w-20 sm:w-24 md:w-32">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -106,6 +106,5 @@ const props = defineProps<HomeHeroProps>()
         />
       </svg>
     </div>
-  -->
-  </section>
+  --></section>
 </template>

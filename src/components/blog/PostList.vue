@@ -49,7 +49,9 @@ const items = computed(() =>
 </script>
 
 <template>
-  <div class="mx-auto w-full max-w-5xl divide-y divide-slate-100 dark:divide-slate-800">
+  <div
+    class="mx-auto w-full max-w-5xl divide-y divide-slate-100 dark:divide-slate-800"
+  >
     <NuxtLink
       v-for="post in items"
       :key="post.path"
@@ -60,7 +62,9 @@ const items = computed(() =>
         <h3 class="truncate font-medium text-slate-800 dark:text-white">
           {{ post.title }}
         </h3>
-        <p class="mt-1 truncate text-xs text-slate-400 dark:text-slate-500 sm:text-sm">
+        <p
+          class="mt-1 truncate text-xs text-slate-400 dark:text-slate-500 sm:text-sm"
+        >
           {{ post.description }}
         </p>
       </div>
