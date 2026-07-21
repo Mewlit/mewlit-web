@@ -34,7 +34,7 @@ export default defineNuxtConfig({
 
     // https://github.com/harlan-zw/nuxt-seo/issues/109
     // https://nuxtseo.com/docs/og-image/renderers
-    compatibility:{
+    compatibility: {
       prerenderer: {
         resvg: 'wasm',
       },
