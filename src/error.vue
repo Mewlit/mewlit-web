@@ -36,27 +36,27 @@ useSeoMeta({ title: title.value, description: description.value })
     <TheNavber />
 
     <div class="mx-auto max-w-2xl px-4 sm:px-6">
-    <main class="main mt-12 max-w-5xl gap-8 md:mt-20 md:gap-16">
-      <PageHeader :title="title">
-        <div class="flex gap-2 text-xs">
-          <span class="shrink-0 py-1">現在のURL：</span>
-          <div
-            class="break-all rounded bg-slate-100 px-2 py-1 font-mono dark:bg-slate-800"
-          >
-            {{ route.fullPath }}
+      <main class="main mt-12 max-w-5xl gap-8 md:mt-20 md:gap-16">
+        <PageHeader :title="title">
+          <div class="flex gap-2 text-xs">
+            <span class="shrink-0 py-1">現在のURL：</span>
+            <div
+              class="break-all rounded bg-slate-100 px-2 py-1 font-mono dark:bg-slate-800"
+            >
+              {{ route.fullPath }}
+            </div>
           </div>
+        </PageHeader>
+        <div class="flex flex-col items-start gap-8">
+          <p class="text-sm leading-relaxed">{{ description }}</p>
+          <AppLink to="/">
+            <span class="text-xs">トップページへ戻る</span>
+            <template #icon>
+              <span class="i-ph-arrow-u-down-left-bold mt-0.5 size-4" />
+            </template>
+          </AppLink>
         </div>
-      </PageHeader>
-      <div class="flex flex-col items-start gap-8">
-        <p class="text-sm leading-relaxed">{{ description }}</p>
-        <AppLink to="/">
-          <span class="text-xs">トップページへ戻る</span>
-          <template #icon>
-            <span class="i-ph-arrow-u-down-left-bold mt-0.5 size-4" />
-          </template>
-        </AppLink>
-      </div>
-    </main>
+      </main>
     </div>
 
     <TheFooter />

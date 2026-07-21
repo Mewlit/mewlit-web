@@ -18,7 +18,9 @@ const props = defineProps<HomeBlogProps>()
     </h2>
 
     <div class="flex flex-col gap-8">
-      <p class="max-w-2xl text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+      <p
+        class="max-w-2xl text-sm leading-relaxed text-gray-500 dark:text-gray-400"
+      >
         {{ props.description }}
       </p>
 

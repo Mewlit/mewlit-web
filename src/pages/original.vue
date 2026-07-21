@@ -35,7 +35,9 @@ const games = ref([
 
       <ul class="sns-list center">
         <li v-for="link in snsLinks" :key="link.name">
-          <a :href="link.url" :class="link.className" target="_blank">{{ link.name }}</a>
+          <a :href="link.url" :class="link.className" target="_blank">{{
+            link.name
+          }}</a>
         </li>
       </ul>
 
@@ -88,8 +90,8 @@ const games = ref([
   リセットCSS
   基本的には触らないでください
   ========================================== */
-@import url("https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap");
-input[type="submit"] {
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
+input[type='submit'] {
   -webkit-appearance: none;
   border-radius: 0;
 }
@@ -129,10 +131,19 @@ h5 {
 body {
   background-size: auto auto;
   background-color: #ffffff;
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(184, 252, 255, 0.5) 14px, rgba(184, 252, 255, 0.5) 27px);
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 14px,
+    rgba(184, 252, 255, 0.5) 14px,
+    rgba(184, 252, 255, 0.5) 27px
+  );
   /* ↑上記3行が背景のストライプの記述です。
       お好みの色などに変更してください。※ */
-  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
+  font-family:
+    'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans',
+    'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo,
+    'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   padding: 0;
   margin: 0;
   color: #333333;
@@ -186,7 +197,7 @@ ul {
 h1 {
   color: #da2b5c;
   /* ↑見出し色 リンク色と同じになります ※ */
-  font-family: "Kosugi Maru", sans-serif;
+  font-family: 'Kosugi Maru', sans-serif;
 }
 
 h4 {
@@ -263,7 +274,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .two-column .column {
@@ -274,7 +285,7 @@ section {
   .two-column {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-            flex-direction: column;
+    flex-direction: column;
   }
   .two-column .column {
     width: 100%;
@@ -315,7 +326,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   -webkit-box-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .cs li {
@@ -344,7 +355,7 @@ h3 {
   width: 100%;
   height: 180px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .cs li a .text {
@@ -402,7 +413,7 @@ ul.sns-list {
   flex-wrap: wrap;
   margin: 1em auto;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   max-width: 600px;
 }
 
@@ -424,8 +435,8 @@ ul.sns-list li a:hover {
 }
 
 ul.sns-list li a.twitter:hover {
-  background: #1DA1F2;
-  border: 2px solid #1DA1F2;
+  background: #1da1f2;
+  border: 2px solid #1da1f2;
   color: #ffffff;
 }
 
@@ -454,38 +465,38 @@ ul.sns-list li a.note:hover {
 }
 
 ul.sns-list li a.amazon:hover {
-  background: #FF9900;
-  border: 2px solid #FF9900;
+  background: #ff9900;
+  border: 2px solid #ff9900;
   color: #ffffff;
 }
 
 ul.sns-list li a.marsh:hover {
-  background: #F3969A;
-  border: 2px solid #F3969A;
+  background: #f3969a;
+  border: 2px solid #f3969a;
   color: #ffffff;
 }
 
 ul.sns-list li a.skeb:hover {
-  background: #30B396;
-  border: 2px solid #30B396;
+  background: #30b396;
+  border: 2px solid #30b396;
   color: #ffffff;
 }
 
 ul.sns-list li a.pixiv:hover {
-  background: #0096FA;
-  border: 2px solid #0096FA;
+  background: #0096fa;
+  border: 2px solid #0096fa;
   color: #ffffff;
 }
 
 ul.sns-list li a.booth:hover {
-  background: #FC4D50;
-  border: 2px solid #FC4D50;
+  background: #fc4d50;
+  border: 2px solid #fc4d50;
   color: #ffffff;
 }
 
 ul.sns-list li a.fantia:hover {
-  background: #FF5600;
-  border: 2px solid #FF5600;
+  background: #ff5600;
+  border: 2px solid #ff5600;
   color: #ffffff;
 }
 
@@ -569,5 +580,4 @@ html {
     max-width: 1140px;
   }
 }
-
 </style>
