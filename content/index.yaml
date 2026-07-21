@@ -1,0 +1,18 @@
+# index
+title: 'Mewlit Web'
+description: '自分のやりたいことを見つけたい、みゃうさんの個人ウェブサイトです。甘いもの、猫、アニメ、ゲームがすきです。'
+hero:
+  title: 'Mewlit Web'
+  subtitle: 'みゃうさんの個人ウェブサイト'
+  image:
+    sm: '/assets/hero-sm.webp'
+    md: '/assets/hero-md.webp'
+    lg: '/assets/hero-lg.webp'
+profile:
+  title: 'About Me'
+  biography:
+    - 'みゃうさんです。インフラ系のエンジニアをやっています。'
+    - 'お散歩と甘いものと猫がすき。横浜在住。'
+blog:
+  title: 'Diary'
+  description: '趣味のことから技術系の真面目なことまで、書きたいことをなんとなく書いてみたり感じたことを後で振り返ることができるように書いたりしている日記です。'
