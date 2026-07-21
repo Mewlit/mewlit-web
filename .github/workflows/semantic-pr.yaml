@@ -22,7 +22,7 @@ jobs:
         os: [ubuntu-latest]
     timeout-minutes: 10
 
-    if: github.repository == 'Hiratake/hiratake-web'
+    if: github.repository == 'Mewlit/mirargent.site'
 
     steps:
       - name: Validate PR title
