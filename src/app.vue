@@ -1,13 +1,16 @@
 <script lang="ts" setup>
-// Assets
-import '@fontsource/noto-sans-jp/400.css'
-import '@fontsource/noto-sans-jp/700.css'
-import '@fontsource/lexend/400.css'
-import '@fontsource/lexend/900.css'
-import '@fontsource/source-code-pro/400.css'
-import '@fontsource/source-code-pro/700.css'
-
 const website = useWebsite()
+
+useHead({
+  link: [
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Lexend:wght@400;900&family=Noto+Sans+JP:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap',
+    },
+  ],
+})
 </script>
 
 <template>
