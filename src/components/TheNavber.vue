@@ -123,7 +123,7 @@ const items = computed(() => [
           <NuxtLink
             :to="item.path"
             :title="item.name"
-            class="relative z-10 flex size-9 items-center justify-center text-gray-700 transition hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400"
+            class="hover:text-primary-500 dark:hover:text-primary-400 relative z-10 flex size-9 items-center justify-center text-gray-700 transition dark:text-gray-200"
             active-class="text-primary-600 dark:text-primary-400"
           >
             <!-- アイコン本体：z-10 で背景より前面に配置 -->
@@ -132,7 +132,7 @@ const items = computed(() => [
             <!-- アクティブ時のアンダーライン -->
             <span
               v-if="$route.path === item.path"
-              class="absolute -bottom-px inset-x-1 z-10 h-px bg-gradient-to-r from-primary-500/0 via-primary-500/70 to-primary-500/0 dark:from-primary-400/0 dark:via-primary-400/40 dark:to-primary-400/0"
+              class="from-primary-500/0 via-primary-500/70 to-primary-500/0 dark:from-primary-400/0 dark:via-primary-400/40 dark:to-primary-400/0 absolute inset-x-1 -bottom-px z-10 h-px bg-gradient-to-r"
             />
 
             <!-- アクティブ時の背景円：z-0 でアイコンの後ろに配置 -->
@@ -148,46 +148,48 @@ const items = computed(() => [
         <!-- スペーサー -->
         <li class="flex-1" />
 
-          <!-- アクションエリア（Discord / RSS / ダークモード切替） -->
-          <li class="flex items-center gap-1">
-            <!-- Discord リンク -->
-            <NuxtLink
-              :to="socials.discord.url"
-              :title="socials.discord.name"
-              aria-label="Discordサーバに参加する"
-              target="_blank"
-              class="relative flex size-8 items-center justify-center rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
-            >
-              <span class="i-simple-icons-discord size-4" />
-            </NuxtLink>
+        <!-- アクションエリア（Discord / RSS / ダークモード切替） -->
+        <li class="flex items-center gap-1">
+          <!-- Discord リンク -->
+          <NuxtLink
+            :to="socials.discord.url"
+            :title="socials.discord.name"
+            aria-label="Discordサーバに参加する"
+            target="_blank"
+            class="relative flex size-8 items-center justify-center rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
+          >
+            <span class="i-simple-icons-discord size-4" />
+          </NuxtLink>
 
-            <!-- RSS コピーボタン -->
-            <button
-              :title="socials.rss.name"
-              aria-label="RSSフィードのURLをコピーする"
-              class="relative flex size-8 items-center justify-center rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
-              @click="rssFeedCopy"
-            >
-              <span class="i-ph-rss-bold size-4" />
+          <!-- RSS コピーボタン -->
+          <button
+            :title="socials.rss.name"
+            aria-label="RSSフィードのURLをコピーする"
+            class="relative flex size-8 items-center justify-center rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
+            @click="rssFeedCopy"
+          >
+            <span class="i-ph-rss-bold size-4" />
 
-              <!-- コピー完了通知ツールチップ -->
-              <span
-                :class="[isVisibleRssFeedCopyTooltip ? 'opacity-100' : 'opacity-0']"
-                class="pointer-events-none absolute -bottom-8 whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-xs text-white shadow-md transition-opacity dark:bg-white dark:text-gray-900"
-              >
-                URLをコピーしました
-              </span>
-            </button>
-
-            <!-- ダークモードトグル -->
-            <Switch
-              v-model="isDark"
-              aria-label="カラーモードを切り替える"
-              class="relative flex size-8 items-center justify-center rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
+            <!-- コピー完了通知ツールチップ -->
+            <span
+              :class="[
+                isVisibleRssFeedCopyTooltip ? 'opacity-100' : 'opacity-0',
+              ]"
+              class="pointer-events-none absolute -bottom-8 whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-xs text-white shadow-md transition-opacity dark:bg-white dark:text-gray-900"
             >
-              <span class="i-ph-sun-bold size-4 dark:i-ph-moon-bold" />
-            </Switch>
-          </li>
+              URLをコピーしました
+            </span>
+          </button>
+
+          <!-- ダークモードトグル -->
+          <Switch
+            v-model="isDark"
+            aria-label="カラーモードを切り替える"
+            class="relative flex size-8 items-center justify-center rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-white/10"
+          >
+            <span class="i-ph-sun-bold size-4 dark:i-ph-moon-bold" />
+          </Switch>
+        </li>
       </ul>
     </nav>
   </div>
