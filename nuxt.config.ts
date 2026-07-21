@@ -31,7 +31,19 @@ export default defineNuxtConfig({
   },
   ogImage: {
     fonts: ['Noto+Sans+JP:400', 'Noto+Sans+JP:700'],
+
+    // https://github.com/harlan-zw/nuxt-seo/issues/109
+    // https://nuxtseo.com/docs/og-image/renderers
+    compatibility: {
+      prerender: {
+        resvg: 'wasm',
+      },
+      runtime: {
+        resvg: 'wasm',
+      },
+    },
   },
+
   routeRules: {
     '/feed.xml': {
       headers: { 'content-type': 'application/rss+xml; charset=UTF-8' },
