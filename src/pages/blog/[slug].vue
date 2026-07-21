@@ -111,7 +111,6 @@ useSchemaOrg([
     author: [{ name: author.name, url: author.url }],
   }),
 ])
-defineOgImageComponent('BlogPost')
 </script>
 
 <template>
