@@ -40,8 +40,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      gtmId: 'GTM-WF3MQWM',
-      cloudflareImageHash: '3uWTcGTKoWPI8987WrI0hQ',
+      gtmId: 'GTM-M39N2ZBR',
+      cloudflareImageHash: '',
     },
   },
   schemaOrg: {
