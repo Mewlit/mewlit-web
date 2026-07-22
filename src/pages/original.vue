@@ -2,11 +2,20 @@
 import { ref } from 'vue'
 
 const website = useWebsite()
+const route = useRoute()
 const { data, error } = await useAsyncData('index', () =>
   queryCollection('home').path('/').first(),
 )
 
 if (error.value) {
+  throw createError({
+    statusCode: 500,
+    message: 'データの取得に失敗しました',
+    fatal: true,
+  })
+}
+
+if (!data.value) {
   throw createError({
     statusCode: 404,
     message: 'ページが見つかりません',
@@ -20,12 +29,17 @@ const name = website.value.name
 const description = website.value.description
 
 useSeoMeta({
-  title: () => data.value?.title || name,
-  description: () => data.value?.description || description,
+  title: () => data.value?.title || 'Original',
+  description: () => data.value?.description || 'オリジナルページ',
   ogType: 'website',
 })
 useSchemaOrg([
-  defineBreadcrumb({ itemListElement: [{ name: name, item: '/' }] }),
+  defineBreadcrumb({
+    itemListElement: [
+      { name: name, item: '/' },
+      { name: 'Original', item: route.path },
+    ],
+  }),
 ])
 
 const lastUpdated = ref('2026.07.16')
