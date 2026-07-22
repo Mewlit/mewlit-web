@@ -7,7 +7,7 @@ useHead({
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
     {
       rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Lexend:wght@400;900&family=Noto+Sans+JP:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Lexend:wght@400;900&family=Kosugi+Maru:wght@400&family=Noto+Sans+JP:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap',
     },
   ],
 })
