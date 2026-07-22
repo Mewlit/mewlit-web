@@ -21,7 +21,14 @@ useSeoMeta({
   ogType: 'website',
 })
 
-useSchemaOrg([defineBreadcrumb({ itemListElement: [{ name, item: '/' }] })])
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { name, item: '/' },
+      { name: 'Books', item: '/books' },
+    ],
+  }),
+])
 </script>
 
 <template>
