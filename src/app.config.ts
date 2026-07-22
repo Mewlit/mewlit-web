@@ -23,7 +23,7 @@ export default defineAppConfig({
     discord: {
       name: 'Discord',
       handle: '@mewlit',
-      url: 'https://chat.hiratake.dev/',
+      url: 'https://discordapp.com/users/608102794741809154/',
     },
     x: {
       name: 'X',
@@ -33,12 +33,12 @@ export default defineAppConfig({
     misskey: {
       name: 'Misskey',
       handle: '@mewlit',
-      url: 'https://misskey.io/@mewlit',
+      url: 'https://misskey.io/@YuruiLka',
     },
     steam: {
       name: 'Steam',
-      handle: '@',
-      url: 'https://steamcommunity.com/id//',
+      handle: '@mLit',
+      url: 'https://steamcommunity.com/profiles/76561198982746717/',
     },
     rss: {
       name: 'mewlit Web Diary RSS Feed',
