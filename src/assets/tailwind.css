@@ -4,6 +4,7 @@
 
 .body {
   @apply bg-white text-slate-600 dark:bg-slate-900 dark:text-slate-100;
+
   font-family: 'Kosugi Maru', 'Noto Sans JP', sans-serif;
 }
 
