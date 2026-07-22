@@ -24,7 +24,7 @@ reviews:
   # ハイレベルサマリーの出力先設定
   # true: CodeRabbitのウォークスルーコメント内に配置（PR本文を汚さない）
   # false: PR本文（Description）の末尾に追加
-  high_level_summary_in_walkthrough: true
+  high_level_summary_in_walkthrough: false
 
   # レビューコメントの末尾にPRの内容に沿った詩（ポエム）を追加するかどうか
   # やっぱ面白くなきゃ
