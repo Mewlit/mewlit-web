@@ -61,13 +61,13 @@
       <span class="text-sm font-bold">C</span>
     </li>
     <li
-      class="inline-flex items-center gap-2 rounded-3xl bg-[#93a1b1] px-3 py-1 text-white"
+      class="inline-flex items-center gap-2 rounded-3xl bg-[#93a1b1] px-3 py-1 text-slate-900"
     >
       <span class="i-simple-icons-csharp size-4" />
       <span class="text-sm font-bold">C#</span>
     </li>
     <li
-      class="inline-flex items-center gap-2 rounded-3xl bg-[#53a3ff] px-3 py-1 text-white"
+      class="inline-flex items-center gap-2 rounded-3xl bg-[#53a3ff] px-3 py-1 text-slate-900"
     >
       <span class="i-simple-icons-python size-4" />
       <span class="text-sm font-bold">Python</span>
