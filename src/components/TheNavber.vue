@@ -63,7 +63,7 @@ const items = computed(() => [
   },
   {
     name: 'Bookmarks',
-    path: '/bookmarks',
+    path: '/books',
     icon: 'i-ph-book',
   },
 ])
