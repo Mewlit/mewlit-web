@@ -37,28 +37,10 @@
       <span class="text-sm font-bold">Nuxt</span>
     </li>
     <li
-      class="inline-flex items-center gap-2 rounded-3xl bg-[#61dafb] px-3 py-1 text-slate-600"
-    >
-      <span class="i-simple-icons-react size-4" />
-      <span class="text-sm font-bold">React</span>
-    </li>
-    <li
-      class="inline-flex items-center gap-2 rounded-3xl bg-black px-3 py-1 text-white"
-    >
-      <span class="i-simple-icons-nextdotjs size-4" />
-      <span class="text-sm font-bold">Next.js</span>
-    </li>
-    <li
       class="inline-flex items-center gap-2 rounded-3xl bg-[#06b6d4] px-3 py-1 text-white"
     >
       <span class="i-simple-icons-tailwindcss size-4" />
       <span class="text-sm font-bold">Tailwind CSS</span>
-    </li>
-    <li
-      class="inline-flex items-center gap-2 rounded-3xl bg-[#cc6699] px-3 py-1 text-white"
-    >
-      <span class="i-simple-icons-sass size-4" />
-      <span class="text-sm font-bold">Sass</span>
     </li>
     <li
       class="inline-flex items-center gap-2 rounded-3xl bg-[#777bb4] px-3 py-1 text-white"
@@ -76,7 +58,19 @@
       class="inline-flex items-center gap-2 rounded-3xl bg-[#a8b9cc] px-3 py-1 text-slate-600"
     >
       <span class="i-simple-icons-c size-4" />
-      <span class="text-sm font-bold">C言語</span>
+      <span class="text-sm font-bold">C</span>
+    </li>
+    <li
+      class="inline-flex items-center gap-2 rounded-3xl bg-[#93a1b1] px-3 py-1 text-slate-600"
+    >
+      <span class="i-simple-icons-csharp size-4" />
+      <span class="text-sm font-bold">C#</span>
+    </li>
+    <li
+      class="inline-flex items-center gap-2 rounded-3xl bg-[#53a3ff] px-3 py-1 text-slate-600"
+    >
+      <span class="i-simple-icons-python size-4" />
+      <span class="text-sm font-bold">Python</span>
     </li>
   </ul>
 </template>
