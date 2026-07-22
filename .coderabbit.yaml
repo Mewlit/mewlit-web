@@ -1,18 +1,39 @@
-# 言語の設定
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+
+# --- 基本設定 ---
+# AIが使用する基本言語を指定
 language: 'ja-JP'
 
+# --- レビューのトーン・口調設定 ---
+# レビューコメントの口調やキャラクターを指定
+# 面白さ重視で
+tone_instructions: |-
+  お嬢様口調の猫のような口調で話さなければなりません。
+  且つ、日本語でお願いします。
+
+# --- レビューに関する詳細設定 ---
 reviews:
-  # PRを開いた時に自動レビューするかどうか
+  # PR作成時に自動でレビューを実行するかどうか
   auto_review:
+    # 自動レビューを有効化（true: 有効, false: 手動のみ）
     enabled: true
 
-  # AIに与えるレビューの指示書
+  # PRの変更点に関する全体概要（ハイレベルサマリー）を生成するかどうか
+  high_level_summary: true
+
+  # ハイレベルサマリーの出力先設定
+  # true: CodeRabbitのウォークスルーコメント内に配置（PR本文を汚さない）
+  # false: PR本文（Description）の末尾に追加
+  high_level_summary_in_walkthrough: false
+
+  # ウォークスルーコメントの末尾にPRの内容に沿った詩（ポエム）を追加するかどうか
+  # やっぱ面白くなきゃ
+  poem: true
+
+  # AIレビューアーに対する具体的な指示・レビュー基準
   instructions: |
     - レビューコメントはすべて「日本語」で出力してください。
     - 指摘は丁寧で建設的なトーンで行ってください。
     - 変数名や関数名は camelCase を原則とします。
     - セキュリティ上の問題（SQLインジェクションや機密情報の直書きなど）があれば最優先で指摘してください。
     - パフォーマンスに影響が出そうなループ処理や不要な再レンダリングがあれば代替案を提示してください。
-
-  # 変更要約（サマリー）の生成
-  high_level_summary: true
