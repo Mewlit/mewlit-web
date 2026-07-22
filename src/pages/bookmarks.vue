@@ -1,10 +1,19 @@
 <script lang="ts" setup>
 const website = useWebsite()
+const route = useRoute()
 const { data, error } = await useAsyncData('index', () =>
   queryCollection('home').path('/').first(),
 )
 
 if (error.value) {
+  throw createError({
+    statusCode: 500,
+    message: 'データの取得に失敗しました',
+    fatal: true,
+  })
+}
+
+if (!data.value) {
   throw createError({
     statusCode: 404,
     message: 'ページが見つかりません',
@@ -18,12 +27,17 @@ const name = website.value.name
 const description = website.value.description
 
 useSeoMeta({
-  title: () => data.value?.title || name,
-  description: () => data.value?.description || description,
+  title: () => data.value?.title || 'Bookmarks',
+  description: () => data.value?.description || 'ブックマークページ',
   ogType: 'website',
 })
 useSchemaOrg([
-  defineBreadcrumb({ itemListElement: [{ name: name, item: '/' }] }),
+  defineBreadcrumb({
+    itemListElement: [
+      { name: name, item: '/' },
+      { name: 'Bookmarks', item: route.path },
+    ],
+  }),
 ])
 </script>
 
