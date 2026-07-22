@@ -4,43 +4,43 @@ defineOptions({
 })
 
 const description =
-  "Awesome things I've found on the internet. This page is still WIP, and I want to add search like bmrks.com."
+  'わたくしが普段使用してるサイトや参考になったサイト群達ですわ❤️'
 
 const bookmarks = [
   {
     id: 1,
-    label: 'Adam Wathan - Tailwind CSS Best Practice Patterns',
-    url: 'https://www.youtube.com/watch?v=J_7_mnFSLDg',
+    label: 'ひらたけさんブログ',
+    url: 'https://hiratake.dev/',
   },
   {
     id: 2,
-    label: 'Dicebear Awesome avatars',
-    url: 'https://www.dicebear.com/',
+    label: 'YouTube',
+    url: 'https://www.youtube.com/',
   },
   {
     id: 3,
-    label: 'Circuit design stock image',
-    url: 'https://images.unsplash.com/photo-1592659762303-90081d34b277?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2873&q=80',
+    label: 'Twitter (新: X)',
+    url: 'https://x.com/',
   },
   {
     id: 4,
-    label: 'Beautiful Gradient Generator',
-    url: 'https://www.joshwcomeau.com/gradient-generator/',
+    label: 'Miskey',
+    url: 'https://misskey.io/',
   },
   {
     id: 5,
-    label: '3D device mockups',
-    url: 'https://deviceframes.com/',
+    label: 'BlueSky',
+    url: 'https://bsky.app/',
   },
   {
     id: 6,
-    label: 'Box shadow examples',
-    url: 'https://getcssscan.com/css-box-shadow-examples',
+    label: 'Github',
+    url: 'https://github.com/',
   },
   {
     id: 7,
-    label: 'Octupos Illustration',
-    url: 'https://refine.new/',
+    label: 'CloudFlare',
+    url: 'https://cloudflare.com/',
   },
   {
     id: 8,
@@ -49,23 +49,23 @@ const bookmarks = [
   },
   {
     id: 9,
-    label: 'Tines - Beautiful landing page',
-    url: 'https://www.tines.com/product',
+    label: 'Gemini',
+    url: 'https://gemini.google.com/',
   },
   {
     id: 10,
+    label: 'Claude AI',
+    url: 'https://claude.ai/',
+  },
+  {
+    id: 11,
     label: 'SVG Spinners',
     url: 'https://github.com/n3r4zzurr0/svg-spinners',
   },
   {
-    id: 11,
-    label: 'ASCII Flow - Text based image drawing',
-    url: 'https://asciiflow.com/#/',
-  },
-  {
     id: 12,
-    label: 'REQRES Mock apis for testing',
-    url: 'https://reqres.in/',
+    label: 'qiita',
+    url: 'https://qiita.com/',
   },
   {
     id: 13,
@@ -74,13 +74,28 @@ const bookmarks = [
   },
   {
     id: 14,
-    label: 'IP API',
-    url: 'https://ipapi.is/',
+    label: 'TailScale',
+    url: 'https://tailscale.com/',
   },
   {
     id: 15,
-    label: 'Rakko Tools',
-    url: 'https://en.rakko.tools/',
+    label: 'rakko.tools',
+    url: 'https://rakko.tools/ja',
+  },
+  {
+    id: 16,
+    label: 'Figma',
+    url: 'https://www.figma.com/',
+  },
+  {
+    id: 17,
+    label: 'Notion',
+    url: 'https://www.notion.so/',
+  },
+  {
+    id: 18,
+    label: 'Cloudflare Pages',
+    url: 'https://pages.cloudflare.com/',
   },
 ]
 
@@ -103,7 +118,7 @@ function getThumbnail(url: string) {
 
 <template>
   <section class="flex flex-col gap-8">
-    <PageHeader title="Bookmarks">
+    <PageHeader title="最高なブックマーク">
       <p class="max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300">
         {{ description }}
       </p>
