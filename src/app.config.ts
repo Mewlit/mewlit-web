@@ -32,7 +32,7 @@ export default defineAppConfig({
     },
     misskey: {
       name: 'Misskey',
-      handle: '@mewlit',
+      handle: '@YuruiLka',
       url: 'https://misskey.io/@YuruiLka',
     },
     steam: {
