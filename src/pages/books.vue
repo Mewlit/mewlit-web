@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const website = useWebsite()
-const { data, error } = await useAsyncData('index', () =>
+const { data, error } = await useAsyncData('books', () =>
   queryCollection('home').path('/').first(),
 )
 
@@ -12,23 +12,29 @@ if (error.value) {
   })
 }
 
-/** ウェブサイトの名前 */
 const name = website.value.name
-/** ウェブサイトの概要 */
 const description = website.value.description
 
 useSeoMeta({
-  title: () => data.value?.title || name,
+  title: () => `Books | ${name}`,
   description: () => data.value?.description || description,
   ogType: 'website',
 })
+
 useSchemaOrg([
-  defineBreadcrumb({ itemListElement: [{ name: name, item: '/' }] }),
+  defineBreadcrumb({
+    itemListElement: [
+      { name, item: '/' },
+      { name: 'Books', item: '/books' },
+    ],
+  }),
 ])
 </script>
 
 <template>
-  <main v-if="data" class="main max-w-7xl gap-16 md:gap-20">
-    誠意制作中だにゃ
+  <main
+    class="main mx-auto flex max-w-5xl flex-col gap-10 px-4 py-8 sm:px-6 lg:px-8"
+  >
+    <Bookmarks />
   </main>
 </template>
