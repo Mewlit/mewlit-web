@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 const website = useWebsite()
-const { data, error } = await useAsyncData('home-original', () =>
+const { data, error } = await useAsyncData('index', () =>
   queryCollection('home').path('/').first(),
 )
 

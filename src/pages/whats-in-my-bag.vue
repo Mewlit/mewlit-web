@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const website = useWebsite()
-const { data, error } = await useAsyncData('home-bag', () =>
+const { data, error } = await useAsyncData('index', () =>
   queryCollection('home').path('/').first(),
 )
 
