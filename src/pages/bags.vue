@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const website = useWebsite()
-const { data, error } = await useAsyncData('index', () =>
-  queryCollection('home').path('/').first(),
+const { data, error } = await useAsyncData('bags', () =>
+  queryCollection('home').path('/bags').first(),
 )
 
 if (error.value) {

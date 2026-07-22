@@ -57,8 +57,8 @@ const items = computed(() => [
   },
   { name: 'Lab', path: '/labs', icon: 'i-ph-beer-bottle' },
   {
-    name: "What's in my bag?",
-    path: '/whats-in-my-bag',
+    name: 'Bags',
+    path: '/bags',
     icon: 'i-ph-bag',
   },
   {

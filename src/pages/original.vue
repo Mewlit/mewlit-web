@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 
 const website = useWebsite()
-const { data, error } = await useAsyncData('index', () =>
-  queryCollection('home').path('/').first(),
+const { data, error } = await useAsyncData('original', () =>
+  queryCollection('home').path('/original').first(),
 )
 
 if (error.value) {
