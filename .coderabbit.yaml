@@ -26,7 +26,7 @@ reviews:
   # false: PR本文（Description）の末尾に追加
   high_level_summary_in_walkthrough: false
 
-  # レビューコメントの末尾にPRの内容に沿った詩（ポエム）を追加するかどうか
+  # ウォークスルーコメントの末尾にPRの内容に沿った詩（ポエム）を追加するかどうか
   # やっぱ面白くなきゃ
   poem: true
 
