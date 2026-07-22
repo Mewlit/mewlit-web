@@ -1,6 +1,33 @@
 <script setup>
 import { ref } from 'vue'
 
+const website = useWebsite()
+const { data, error } = await useAsyncData('index', () =>
+  queryCollection('home').path('/').first(),
+)
+
+if (error.value) {
+  throw createError({
+    statusCode: 404,
+    message: 'ページが見つかりません',
+    fatal: true,
+  })
+}
+
+/** ウェブサイトの名前 */
+const name = website.value.name
+/** ウェブサイトの概要 */
+const description = website.value.description
+
+useSeoMeta({
+  title: () => data.value?.title || name,
+  description: () => data.value?.description || description,
+  ogType: 'website',
+})
+useSchemaOrg([
+  defineBreadcrumb({ itemListElement: [{ name: name, item: '/' }] }),
+])
+
 const lastUpdated = ref('2026.07.16')
 
 const snsLinks = ref([
