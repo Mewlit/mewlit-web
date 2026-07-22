@@ -11,11 +11,11 @@ import { iconsPlugin, getIconCollections } from '@egoist/tailwindcss-icons'
 export default <Partial<Config>>{
   theme: {
     extend: {
-      colors: { primary: '#a83d3d', discord: '#5865f2' },
+      colors: { primary: '#B8F8FB', discord: '#5865f2' },
       fontFamily: {
-        sans: ['"Noto Sans JP"', ...fontFamily.sans],
+        sans: ['"Kosugi Maru"', '"Noto Sans JP"', ...fontFamily.sans],
         mono: ['"Source Code Pro"', '"Noto Sans JP"', ...fontFamily.mono],
-        accent: ['Lexend', 'sans-serif'],
+        accent: ['"Kosugi Maru"', 'sans-serif'],
       },
       gridTemplateColumns: {
         'fill-0': 'repeat(auto-fill, minmax(0px, 1fr))',

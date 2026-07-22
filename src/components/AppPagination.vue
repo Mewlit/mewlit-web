@@ -79,7 +79,7 @@ const items = computed(() =>
       :to="item.to"
       :class="[
         item.current
-          ? 'flex bg-primary text-white'
+          ? 'flex bg-primary text-slate-600 dark:bg-blue-400 dark:text-slate-100'
           : 'hidden hover:bg-slate-100 hover:dark:bg-slate-800 sm:flex',
       ]"
       class="size-9 items-center justify-center rounded-full transition-colors"
