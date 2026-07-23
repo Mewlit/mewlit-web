@@ -39,14 +39,7 @@ export const generateContentFromMinimalNode = (
           // 画像
           const imageId = (props?.src as string) || ''
 
-          console.log('[img debug] raw imageId:', JSON.stringify(imageId))
-
           const isExternalOrAbsolutePath = /^(https?:)?\//.test(imageId)
-
-          console.log(
-            '[img debug] isExternalOrAbsolutePath:',
-            isExternalOrAbsolutePath,
-          )
 
           const src = isExternalOrAbsolutePath
             ? imageId
