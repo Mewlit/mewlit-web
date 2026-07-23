@@ -38,9 +38,21 @@ export const generateContentFromMinimalNode = (
         } else if (tag === 'img') {
           // 画像
           const imageId = (props?.src as string) || ''
-          const src = imageId
-            ? `${site.url}/cdn-cgi/imagedelivery/${config.public.cloudflareImageHash}/${imageId}/w=1536`
-            : ''
+
+          console.log('[img debug] raw imageId:', JSON.stringify(imageId))
+
+          const isExternalOrAbsolutePath = /^(https?:)?\//.test(imageId)
+
+          console.log(
+            '[img debug] isExternalOrAbsolutePath:',
+            isExternalOrAbsolutePath,
+          )
+
+          const src = isExternalOrAbsolutePath
+            ? imageId
+            : imageId
+              ? `${site.url}/cdn-cgi/imagedelivery/${config.public.cloudflareImageHash}/${imageId}/w=1536`
+              : ''
           const alt = (props?.alt as string) || ''
           content += `<${tag} src="${src}" alt="${alt}" />`
           continue

@@ -19,26 +19,49 @@ const props = withDefaults(defineProps<ProseImgProps>(), {
 
 const website = useWebsite()
 
-/** 画像URL */
+const isExternalOrAbsolutePath = computed(() =>
+  /^(https?:\/\/|\/)/.test(props.src || ''),
+)
+
+/** 画像URL（CDNの場合はベースURLのみ、幅は付与しない） */
 const imageUrl = computed(() => {
+  const src = props.src || ''
+  if (!src) return ''
+
+  if (isExternalOrAbsolutePath.value) {
+    return src
+  }
+
   const url = website.value.url
   const hash = website.value.cloudflareImageHash
   return `${url}/cdn-cgi/imagedelivery/${hash}/${props.src}`
+})
+
+/** 実際のsrc属性値 */
+const finalSrc = computed(() =>
+  isExternalOrAbsolutePath.value ? imageUrl.value : `${imageUrl.value}/w=1536`,
+)
+
+/** 実際のsrcset属性値（絶対パス/外部URLの場合はsrcsetなし） */
+const finalSrcset = computed(() => {
+  if (isExternalOrAbsolutePath.value) return undefined
+
+  return `
+    ${imageUrl.value}/w=320 320w,
+    ${imageUrl.value}/w=640 640w,
+    ${imageUrl.value}/w=768 768w,
+    ${imageUrl.value}/w=1024 1024w,
+    ${imageUrl.value}/w=1280 1280w,
+    ${imageUrl.value}/w=1536 1536w
+  `
 })
 </script>
 
 <template>
   <img
     v-if="props.src"
-    :src="`${imageUrl}/w=1536`"
-    :srcset="`
-        ${imageUrl}/w=320 320w,
-        ${imageUrl}/w=640 640w,
-        ${imageUrl}/w=768 768w,
-        ${imageUrl}/w=1024 1024w,
-        ${imageUrl}/w=1280 1280w,
-        ${imageUrl}/w=1536 1536w
-      `"
+    :src="finalSrc"
+    :srcset="finalSrcset"
     :alt="props.alt"
     :width="props.width"
     :height="props.height"
