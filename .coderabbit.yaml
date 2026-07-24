@@ -45,6 +45,7 @@ reviews:
     - '!node_modules/**'
     - '!.nuxt/**'
     - '!pnpm-lock.yaml'
+    - '!package.json'
 
   # AIレビューアーに対する具体的な指示・レビュー基準
   instructions: |
