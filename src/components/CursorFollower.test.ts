@@ -55,7 +55,12 @@ describe('CursorFollower', () => {
     const wrapper = mount(CursorFollower)
 
     expect(wrapper.classes()).toEqual(
-      expect.arrayContaining(['pointer-events-none', 'fixed', 'inset-0', 'z-[1200]']),
+      expect.arrayContaining([
+        'pointer-events-none',
+        'fixed',
+        'inset-0',
+        'z-[1200]',
+      ]),
     )
 
     const ball = wrapper.find('.rounded-full')
@@ -80,7 +85,9 @@ describe('CursorFollower', () => {
   it('is invisible and positioned off the initial cursor origin before any mouse movement', () => {
     const wrapper = mount(CursorFollower)
 
-    const { opacity, x, y } = parseBallStyle(wrapper.find('.rounded-full').attributes('style'))
+    const { opacity, x, y } = parseBallStyle(
+      wrapper.find('.rounded-full').attributes('style'),
+    )
     expect(opacity).toBe(0)
     expect(x).toBeCloseTo(-7.5)
     expect(y).toBeCloseTo(-7.5)
@@ -93,7 +100,10 @@ describe('CursorFollower', () => {
 
     mount(CursorFollower)
 
-    expect(addEventListenerSpy).toHaveBeenCalledWith('mousemove', expect.any(Function))
+    expect(addEventListenerSpy).toHaveBeenCalledWith(
+      'mousemove',
+      expect.any(Function),
+    )
     expect(rafCallbacks).toHaveLength(1)
   })
 
@@ -105,19 +115,26 @@ describe('CursorFollower', () => {
     const wrapper = mount(CursorFollower)
     wrapper.unmount()
 
-    expect(removeEventListenerSpy).toHaveBeenCalledWith('mousemove', expect.any(Function))
+    expect(removeEventListenerSpy).toHaveBeenCalledWith(
+      'mousemove',
+      expect.any(Function),
+    )
     expect(cancelAnimationFrameSpy).toHaveBeenCalled()
   })
 
   it('becomes visible after a mousemove event, but only moves the ball once an animation frame runs', async () => {
     const wrapper = mount(CursorFollower)
 
-    window.dispatchEvent(new MouseEvent('mousemove', { clientX: 100, clientY: 50 }))
+    window.dispatchEvent(
+      new MouseEvent('mousemove', { clientX: 100, clientY: 50 }),
+    )
     await wrapper.vm.$nextTick()
 
     // Opacity flips immediately (driven by `hasMoved`), but the position is
     // still untouched because `animate()` has not run yet.
-    let style = parseBallStyle(wrapper.find('.rounded-full').attributes('style'))
+    let style = parseBallStyle(
+      wrapper.find('.rounded-full').attributes('style'),
+    )
     expect(style.opacity).toBe(1)
     expect(style.x).toBeCloseTo(-7.5)
     expect(style.y).toBeCloseTo(-7.5)
@@ -147,14 +164,20 @@ describe('CursorFollower', () => {
   it('only follows the most recent mousemove target when several fire before a frame runs', async () => {
     const wrapper = mount(CursorFollower)
 
-    window.dispatchEvent(new MouseEvent('mousemove', { clientX: 10, clientY: 10 }))
-    window.dispatchEvent(new MouseEvent('mousemove', { clientX: 300, clientY: 400 }))
+    window.dispatchEvent(
+      new MouseEvent('mousemove', { clientX: 10, clientY: 10 }),
+    )
+    window.dispatchEvent(
+      new MouseEvent('mousemove', { clientX: 300, clientY: 400 }),
+    )
     await wrapper.vm.$nextTick()
 
     flushFrame()
     await wrapper.vm.$nextTick()
 
-    const { x, y } = parseBallStyle(wrapper.find('.rounded-full').attributes('style'))
+    const { x, y } = parseBallStyle(
+      wrapper.find('.rounded-full').attributes('style'),
+    )
     expect(x).toBeCloseTo(300 * 0.16 - 7.5)
     expect(y).toBeCloseTo(400 * 0.16 - 7.5)
 
@@ -164,7 +187,9 @@ describe('CursorFollower', () => {
   it('converges toward the cursor position as more animation frames run', async () => {
     const wrapper = mount(CursorFollower)
 
-    window.dispatchEvent(new MouseEvent('mousemove', { clientX: 200, clientY: 200 }))
+    window.dispatchEvent(
+      new MouseEvent('mousemove', { clientX: 200, clientY: 200 }),
+    )
     await wrapper.vm.$nextTick()
 
     for (let i = 0; i < 100; i++) {
@@ -172,7 +197,9 @@ describe('CursorFollower', () => {
     }
     await wrapper.vm.$nextTick()
 
-    const { x, y } = parseBallStyle(wrapper.find('.rounded-full').attributes('style'))
+    const { x, y } = parseBallStyle(
+      wrapper.find('.rounded-full').attributes('style'),
+    )
     expect(x).toBeCloseTo(200 - 7.5, 1)
     expect(y).toBeCloseTo(200 - 7.5, 1)
 

@@ -3,7 +3,8 @@ import { mount } from '@vue/test-utils'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const { default: App } = await import('./app.vue')
-const { default: CursorFollower } = await import('./components/CursorFollower.vue')
+const { default: CursorFollower } =
+  await import('./components/CursorFollower.vue')
 
 // All other Nuxt-provided globals/components used by app.vue are stubbed out
 // so this test can focus purely on the changes introduced by this PR: the
@@ -32,7 +33,10 @@ describe('app.vue', () => {
 
     // Prevent CursorFollower's real animation loop from scheduling actual
     // frames while we mount the whole app tree.
-    vi.stubGlobal('requestAnimationFrame', vi.fn(() => 0))
+    vi.stubGlobal(
+      'requestAnimationFrame',
+      vi.fn(() => 0),
+    )
     vi.stubGlobal('cancelAnimationFrame', vi.fn())
   })
 
