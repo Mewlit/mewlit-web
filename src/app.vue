@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import CursorFollower from '~/components/CursorFollower.vue'
+
 const website = useWebsite()
 
 useHead({
@@ -15,11 +17,12 @@ useHead({
 
 <template>
   <Body
-    class="body min-h-screen bg-white text-slate-800 antialiased dark:bg-slate-900 dark:text-slate-100"
+    class="body min-h-screen cursor-none bg-white text-slate-800 antialiased dark:bg-slate-900 dark:text-slate-100"
   >
     <SeoDefault />
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator :height="2" :color="website.themeColor" />
+    <CursorFollower />
 
     <!-- TheNavber（Fixedで浮いているため、単体で配置） -->
     <TheNavber />
