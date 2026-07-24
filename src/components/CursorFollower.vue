@@ -58,8 +58,10 @@ onUnmounted(() => {
     mediaQuery.removeEventListener('change', updateEnabled)
   }
   window.removeEventListener('mousemove', onMouseMove)
-  if (animationFrame !== null) {
+  if (!isEnabled.value && animationFrame !== null) {
     cancelAnimationFrame(animationFrame)
+    animationFrame = null
+    isAnimating = false
   }
 })
 
