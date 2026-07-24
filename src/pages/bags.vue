@@ -28,7 +28,5 @@ useSchemaOrg([
 </script>
 
 <template>
-  <main v-if="data" class="main max-w-7xl gap-16 md:gap-20">
-    誠意制作中だにゃ
-  </main>
+  <main class="main max-w-7xl gap-16 md:gap-20">誠意制作中だにゃ</main>
 </template>

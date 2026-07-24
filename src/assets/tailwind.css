@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.body,
-.body * {
-  cursor: none !important;
-}
-
 .body {
   @apply bg-white text-slate-600 dark:bg-slate-900 dark:text-slate-100;
 
