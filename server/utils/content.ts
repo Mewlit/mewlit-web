@@ -39,20 +39,18 @@ export const generateContentFromMinimalNode = (
           // 画像
           const imageId = (props?.src as string) || ''
 
-          console.log('[img debug] raw imageId:', JSON.stringify(imageId))
+          const isExternalUrl = /^(https?:\/\/|\/\/)/.test(imageId)
 
-          const isExternalOrAbsolutePath = /^(https?:)?\//.test(imageId)
+          const isRootRelativePath =
+            imageId.startsWith('/') && !imageId.startsWith('//')
 
-          console.log(
-            '[img debug] isExternalOrAbsolutePath:',
-            isExternalOrAbsolutePath,
-          )
-
-          const src = isExternalOrAbsolutePath
+          const src = isExternalUrl
             ? imageId
-            : imageId
-              ? `${site.url}/cdn-cgi/imagedelivery/${config.public.cloudflareImageHash}/${imageId}/w=1536`
-              : ''
+            : isRootRelativePath
+              ? new URL(imageId, site.url).toString()
+              : imageId
+                ? `${site.url}/cdn-cgi/imagedelivery/${config.public.cloudflareImageHash}/${imageId}/w=1536`
+                : ''
           const alt = (props?.alt as string) || ''
           content += `<${tag} src="${src}" alt="${alt}" />`
           continue
