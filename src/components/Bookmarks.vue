@@ -24,7 +24,7 @@ const bookmarks = [
   },
   {
     id: 4,
-    label: 'Miskey',
+    label: 'Misskey',
     url: 'https://misskey.io/',
   },
   {
@@ -137,7 +137,7 @@ function getThumbnail(url: string) {
           >
             <img
               :src="getThumbnail(bookmark.url)"
-              :alt="bookmark.label"
+              alt=""
               class="h-8 w-8 object-contain"
               loading="lazy"
             />
