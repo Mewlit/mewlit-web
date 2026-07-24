@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const website = useWebsite()
-const { data, error } = await useAsyncData('index', () =>
-  queryCollection('home').path('/').first(),
+const { data, error } = await useAsyncData('bags', () =>
+  queryCollection('home').path('/bags').first(),
 )
 
 if (error.value) {
@@ -28,7 +28,5 @@ useSchemaOrg([
 </script>
 
 <template>
-  <main v-if="data" class="main max-w-7xl gap-16 md:gap-20">
-    誠意制作中だにゃ
-  </main>
+  <main class="main max-w-7xl gap-16 md:gap-20">誠意制作中だにゃ</main>
 </template>

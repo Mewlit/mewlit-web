@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import CursorFollower from '~/components/CursorFollower.vue'
+
 const website = useWebsite()
 
 useHead({
@@ -20,6 +22,7 @@ useHead({
     <SeoDefault />
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator :height="2" :color="website.themeColor" />
+    <CursorFollower />
 
     <!-- TheNavber（Fixedで浮いているため、単体で配置） -->
     <TheNavber />
