@@ -7,22 +7,19 @@ const description =
   'わたくしが普段使用してるサイトや参考になったサイト群達ですわ❤️'
 
 // カテゴリ定義の型（表示タイトルとキーの対応付け）
-interface CategoryConfig {
-  key: string
-  title: string
-}
-
-const categories: CategoryConfig[] = [
+const categories = [
   { key: 'sns', title: 'SNSとか' },
   { key: 'tools', title: 'ツール系' },
   { key: 'ai', title: 'AI系' },
   { key: 'blogs', title: 'ブログ等' },
-]
+] as const
+
+type categoryKey = (typeof categories)[number]['key']
 
 interface Bookmark {
   label: string
   url: string
-  category: string
+  category: categoryKey
 }
 
 /* ブックマークリスト
