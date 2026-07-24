@@ -6,98 +6,132 @@ defineOptions({
 const description =
   'わたくしが普段使用してるサイトや参考になったサイト群達ですわ❤️'
 
-const bookmarks = [
+// カテゴリ定義の型（表示タイトルとキーの対応付け）
+interface CategoryConfig {
+  key: string
+  title: string
+}
+
+const categories: CategoryConfig[] = [
+  { key: 'sns', title: 'SNSとか' },
+  { key: 'tools', title: 'ツール系' },
+  { key: 'ai', title: 'AI系' },
+  { key: 'blogs', title: 'ブログ等' },
+]
+
+interface Bookmark {
+  label: string
+  url: string
+  category: string
+}
+
+/* ブックマークリスト
+  label: 名前
+  url: アドレス
+  category: カテゴリー
+*/
+const bookmarks: Bookmark[] = [
   {
-    id: 1,
     label: 'ひらたけさんブログ',
     url: 'https://hiratake.dev/',
+    category: 'blogs',
   },
   {
-    id: 2,
     label: 'YouTube',
     url: 'https://www.youtube.com/',
+    category: 'sns',
   },
   {
-    id: 3,
     label: 'Twitter (新: X)',
     url: 'https://x.com/',
+    category: 'sns',
   },
   {
-    id: 4,
     label: 'Misskey',
     url: 'https://misskey.io/',
+    category: 'sns',
   },
   {
-    id: 5,
     label: 'BlueSky',
     url: 'https://bsky.app/',
+    category: 'sns',
   },
   {
-    id: 6,
     label: 'Github',
     url: 'https://github.com/',
+    category: 'tools',
   },
   {
-    id: 7,
     label: 'CloudFlare',
     url: 'https://cloudflare.com/',
+    category: 'tools',
   },
   {
-    id: 8,
     label: 'Metalab agency',
     url: 'https://www.metalab.com/',
+    category: 'tools',
   },
   {
-    id: 9,
     label: 'Gemini',
     url: 'https://gemini.google.com/',
+    category: 'ai',
   },
   {
-    id: 10,
     label: 'Claude AI',
     url: 'https://claude.ai/',
+    category: 'ai',
   },
   {
-    id: 11,
     label: 'SVG Spinners',
     url: 'https://github.com/n3r4zzurr0/svg-spinners',
+    category: 'tools',
   },
   {
-    id: 12,
     label: 'qiita',
     url: 'https://qiita.com/',
+    category: 'blogs',
   },
   {
-    id: 13,
     label: 'Haikei - SVG background generator',
     url: 'https://app.haikei.app/',
+    category: 'tools',
   },
   {
-    id: 14,
     label: 'TailScale',
     url: 'https://tailscale.com/',
+    category: 'tools',
   },
   {
-    id: 15,
     label: 'rakko.tools',
     url: 'https://rakko.tools/ja',
+    category: 'tools',
   },
   {
-    id: 16,
     label: 'Figma',
     url: 'https://www.figma.com/',
+    category: 'tools',
   },
   {
-    id: 17,
     label: 'Notion',
     url: 'https://www.notion.so/',
+    category: 'tools',
   },
   {
-    id: 18,
     label: 'Cloudflare Pages',
     url: 'https://pages.cloudflare.com/',
+    category: 'tools',
   },
 ]
+
+// カテゴリごとにグループ化する Computed
+const categorizedBookmarks = computed(() => {
+  return categories
+    .map((cat) => ({
+      ...cat,
+      items: bookmarks.filter((b) => b.category === cat.key),
+    }))
+    .filter((cat) => cat.items.length > 0) // 要素が存在するカテゴリのみ抽出
+})
 
 function getHost(url: string) {
   const parsedUrl = new URL(url)
@@ -124,39 +158,53 @@ function getThumbnail(url: string) {
       </p>
     </PageHeader>
 
-    <ul class="grid gap-3 sm:grid-cols-2">
-      <li v-for="bookmark in bookmarks" :key="bookmark.id">
-        <a
-          :href="bookmark.url"
-          target="_blank"
-          rel="noreferrer"
-          class="group flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-slate-700"
-        >
-          <div
-            class="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800"
+    <!-- カテゴリごとのブロック -->
+    <div
+      v-for="category in categorizedBookmarks"
+      :key="category.key"
+      class="flex flex-col gap-4"
+    >
+      <h2 class="text-lg font-bold text-slate-800 dark:text-slate-100">
+        {{ category.title }}
+      </h2>
+
+      <ul class="grid gap-3 sm:grid-cols-2">
+        <li v-for="bookmark in category.items" :key="bookmark.url">
+          <a
+            :href="bookmark.url"
+            :title="bookmark.label"
+            target="_blank"
+            rel="noreferrer"
+            class="border-border-slate-800 group flex items-center gap-3 rounded-2xl border bg-white p-4 shadow-sm outline-none transition duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:shadow-md focus-visible:ring-2 focus-visible:ring-primary dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-primary dark:focus-visible:ring-sky-400"
           >
-            <img
-              :src="getThumbnail(bookmark.url)"
-              alt=""
-              class="h-8 w-8 object-contain"
-              loading="lazy"
+            <div
+              class="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800"
+            >
+              <img
+                :src="getThumbnail(bookmark.url)"
+                alt=""
+                class="h-8 w-8 object-contain"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="min-w-0 flex-1">
+              <p
+                class="truncate font-medium text-slate-800 dark:text-slate-100"
+              >
+                {{ bookmark.label }}
+              </p>
+              <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                {{ getHost(bookmark.url) }}
+              </p>
+            </div>
+
+            <span
+              class="i-ph-arrow-square-out-bold size-4 text-slate-400 transition group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300"
             />
-          </div>
-
-          <div class="min-w-0 flex-1">
-            <p class="truncate font-medium text-slate-800 dark:text-slate-100">
-              {{ bookmark.label }}
-            </p>
-            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
-              {{ getHost(bookmark.url) }}
-            </p>
-          </div>
-
-          <span
-            class="i-ph-arrow-square-out-bold size-4 text-slate-400 transition group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300"
-          />
-        </a>
-      </li>
-    </ul>
+          </a>
+        </li>
+      </ul>
+    </div>
   </section>
 </template>
