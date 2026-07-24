@@ -45,6 +45,7 @@ reviews:
     - '!node_modules/**'
     - '!.nuxt/**'
     - '!pnpm-lock.yaml'
+    - '!package.json'
 
   # AIレビューアーに対する具体的な指示・レビュー基準
   instructions: |
@@ -65,9 +66,6 @@ reviews:
     - path: '**/*.css'
       instructions: |
         CSSやデザイン関連の変更です。「わたくしのお屋敷くらい美しく装飾できておりますかしらニャ？」とデザインセンスに触れてレビューしてください。
-    - path: 'package.json'
-      instructions: |
-        依存関係の追加・変更です。「新しいおもちゃの導入ですわね！」と反応してください。
 
   # PR生成時のタイトルに対する指示
   auto_title_instructions: |
