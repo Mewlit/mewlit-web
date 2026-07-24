@@ -6,17 +6,33 @@ const y = ref(0)
 const hasMoved = ref(false)
 const targetX = ref(0)
 const targetY = ref(0)
-let animationFrame = 0
+let animationFrame: number | null = null
+let isAnimating = false
 
 const onMouseMove = (event: MouseEvent) => {
   hasMoved.value = true
   targetX.value = event.clientX
   targetY.value = event.clientY
+
+  if (!isAnimating) {
+    isAnimating = true
+    animationFrame = requestAnimationFrame(animate)
+  }
 }
 
 const animate = () => {
   const dx = targetX.value - x.value
   const dy = targetY.value - y.value
+  const distance = Math.hypot(dx, dy)
+
+  if (distance < 0.5) {
+    x.value = targetX.value
+    y.value = targetY.value
+    isAnimating = false
+    animationFrame = null
+    return
+  }
+
   x.value += dx * 0.16
   y.value += dy * 0.16
   animationFrame = requestAnimationFrame(animate)
@@ -24,12 +40,13 @@ const animate = () => {
 
 onMounted(() => {
   window.addEventListener('mousemove', onMouseMove)
-  animationFrame = requestAnimationFrame(animate)
 })
 
 onUnmounted(() => {
   window.removeEventListener('mousemove', onMouseMove)
-  cancelAnimationFrame(animationFrame)
+  if (animationFrame !== null) {
+    cancelAnimationFrame(animationFrame)
+  }
 })
 
 const ballStyle = computed(() => ({
