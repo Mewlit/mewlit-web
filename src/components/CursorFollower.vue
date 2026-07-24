@@ -77,7 +77,7 @@ const ballStyle = computed(() => ({
 </script>
 
 <template>
-  <div v-if="isEnabled" class="pointer-events-none fixed inset-0 z-[-10]">
+  <div v-if="isEnabled" class="pointer-events-none fixed inset-0 z-0">
     <div
       class="pointer-events-none absolute h-10 w-10 rounded-full bg-primary/30 shadow-xl shadow-slate-900/30 dark:bg-slate-100/30"
       :style="ballStyle"
