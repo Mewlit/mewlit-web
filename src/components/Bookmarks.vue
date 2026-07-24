@@ -172,7 +172,7 @@ function getThumbnail(url: string) {
             :title="bookmark.label"
             target="_blank"
             rel="noreferrer"
-            class="border-border-slate-800 group flex items-center gap-3 rounded-2xl border bg-white p-4 shadow-sm outline-none transition duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:shadow-md focus-visible:ring-2 focus-visible:ring-primary dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-primary dark:focus-visible:ring-sky-400"
+            class="border-border-slate-800 group flex items-center gap-3 rounded-2xl border bg-white/0 p-4 shadow-sm outline-none transition duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:shadow-md focus-visible:ring-2 focus-visible:ring-primary dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-primary dark:focus-visible:ring-sky-400"
           >
             <div
               class="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800"
